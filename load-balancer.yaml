@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: load-balancer
+  namespace: ns-3
+spec:
+  type: LoadBalancer  
+  selector:
+    app: nginx
+  ports:
+  - name: port-lb
+    protocol: TCP
+    port: 8080  #service port
+    targetPort: 80  #container port
+
